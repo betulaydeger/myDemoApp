@@ -2,6 +2,14 @@ package com.mycompany.app;
 
 import java.util.Arrays;
 
+/**
+ * The App class provides a method to count the number of true guesses in an
+ * anagram game.
+ * It compares two arrays of words and checks if each pair of words are anagrams
+ * of each other.
+ * The comparison can be case-sensitive or case-insensitive based on the
+ * provided flag.
+ */
 public class App {
 
     public static int how_many_guess_is_true(String[] words1, String[] words2, int[] guess,
