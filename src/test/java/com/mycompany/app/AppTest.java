@@ -39,7 +39,7 @@ public class AppTest {
     public void testEveryoneFalseGuess() {
         String[] words1 = { "hello", "world" };
         String[] words2 = { "odlwr", "ellho" };
-        int[] guess = { 0, 0, 0, 0 };
+        int[] guess = { 0, 1, 0, 1 };
         int result = App.how_many_guess_is_true(words1, words2, guess, true);
         assertEquals(0, result);
     }
@@ -54,5 +54,14 @@ public class AppTest {
         String[] words2 = null;
         int[] guess = { 2, 3, 4 };
         int result = App.how_many_guess_is_true(words1, words2, guess, false);
+    }
+
+    @Test
+    public void testEmptyArrays() {
+        String[] words1 = {};
+        String[] words2 = {};
+        int[] guess = { 2, 3, 4 };
+        int result = App.how_many_guess_is_true(words1, words2, guess, false);
+        assertEquals(0, result);
     }
 }
