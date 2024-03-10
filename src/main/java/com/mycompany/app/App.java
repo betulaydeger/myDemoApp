@@ -1,5 +1,13 @@
 package com.mycompany.app;
 
+import static spark.Spark.get;
+import static spark.Spark.port;
+import static spark.Spark.post;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import spark.ModelAndView;
+import spark.template.mustache.MustacheTemplateEngine;
 import java.util.Arrays;
 
 /**
@@ -43,5 +51,46 @@ public class App {
 
         return number_of_true_guess;
 
+    }
+
+    public static void main(String[] args) {
+        port(getHerokuAssignedPort());
+
+        get("/", (req, res) -> "Hello, World!");
+
+        post("/compute", (req, res) -> {
+            String words1Input = req.queryParams("words1");
+            String[] words1 = words1Input.split("[;\\r\\n]+");
+
+            String words2Input = req.queryParams("words2");
+            String[] words2 = words2Input.split("[;\\r\\n]+");
+
+            String guessesInput = req.queryParams("guesses").replaceAll("\\s", "");
+            String[] guessesString = guessesInput.split(",");
+            int[] guesses = Arrays.stream(guessesString).mapToInt(Integer::parseInt).toArray();
+
+            String isAnagramCaseSensitiveInput = req.queryParams("isAnagramCaseSensitive (True/False)");
+            boolean isAnagramCaseSensitive = Boolean.parseBoolean(isAnagramCaseSensitiveInput);
+
+            int result = how_many_guess_is_true(words1, words2, guesses, isAnagramCaseSensitive);
+
+            Map<String, Object> model = new HashMap<>();
+            model.put("result", result);
+            return new ModelAndView(model, "compute.mustache");
+        }, new MustacheTemplateEngine());
+
+        get("/compute", (rq, rs) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("result", "not computed yet!");
+            return new ModelAndView(model, "compute.mustache");
+        }, new MustacheTemplateEngine());
+    }
+
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567;
     }
 }
