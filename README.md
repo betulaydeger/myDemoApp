@@ -4,4 +4,4 @@ This project is about a simple method implementation and its tests that calculat
 [![Build Status](https://app.travis-ci.com/betulaydeger/myDemoApp.svg?token=oMFRD2paPAaabYfsG3xN&branch=master)](https://app.travis-ci.com/betulaydeger/myDemoApp)
 
 
-Demo site: https://salty-inlet-75869-f05c1e0584d4.herokuapp.com/compute
+Demo site: https://rocky-plains-80230-4a8006aaf608.herokuapp.com/compute
