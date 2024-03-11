@@ -61,19 +61,25 @@ public class App {
             String words1Input = req.queryParams("words1Input");
             String[] words1 = words1Input.split("[;\\r\\n]+");
             for (int i = 0; i < words1.length; i++) {
-                System.out.println(words1[i]);
+                System.out.println("words1: " + words1[i]);
             }
 
             String words2Input = req.queryParams("words2Input");
             String[] words2 = words2Input.split("[;\\r\\n]+");
+            for (int i = 0; i < words2.length; i++) {
+                System.out.println("words2: " + words2[i]);
+            }
 
             String guessesInput = req.queryParams("words2Input").replaceAll("\\s", "");
             String[] guessesString = guessesInput.split(",");
             int[] guesses = Arrays.stream(guessesString).mapToInt(Integer::parseInt).toArray();
+            for (int i = 0; i < guesses.length; i++) {
+                System.out.println("guesses: " + guesses[i]);
+            }
 
             String isAnagramCaseSensitiveInput = req.queryParams("isAnagramCaseSensitiveInput");
             boolean isAnagramCaseSensitive = Boolean.parseBoolean(isAnagramCaseSensitiveInput);
-
+            System.out.println("isAnagramCaseSensitive: " + isAnagramCaseSensitive);
             int result = how_many_guess_is_true(words1, words2, guesses, isAnagramCaseSensitive);
 
             Map<String, Object> model = new HashMap<>();
