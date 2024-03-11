@@ -1,20 +1,17 @@
 <title>My application</title>
-    <h1>Hello, World!
-    Anagram: Harflerin sırası karışık olsa da aynı harflerden eşit sayıda içeren harf çiftleridir.
-    Aşağıda gerekli alanlara kelimeleri tahminleri ve büyük ve küçük harfe duyarlı olup olmadığını giriniz ve kaç kişi doğru tahmin yaptı sonucu görünüz.
+    <h1>Hello, World!\n
+    Anagram: Harflerin sırası karışık olsa da aynı harflerden eşit sayıda içeren harf çiftleridir.\n
+    Aşağıda gerekli alanlara kelimeleri tahminleri ve büyük ve küçük harfe duyarlı olup olmadığını giriniz ve kaç kişi doğru tahmin yaptı sonucu görünüz.\n
+    İlk alana ilk kelime dizisini alt alta giriniz.\n
+    İkinci alana ikinci kelime dizisini alt alta giriniz. \n
+    Üçüncü alana tahmin sayısını , ile ayırarak giriniz. \n
+    Dördüncü alana True veya False giriniz.
     </h1>
         Result is {{result}}
 <form action="compute" method="post">
-    <label for="words1Input">Kelime Listesi 1 :</label><br>
     <textarea id="words1Input" textarea name="words1Input" rows="10" cols="20"></textarea>
-
-    <label for="words2Input">Kelime Listesi 2 :</label><br>
     <textarea id="words2Input" textarea name="words2Input" rows="10" cols="20"></textarea>
-
-    <label for="guessesInput">Tahminler :</label><br>
     <textarea id="guessesInput" textarea name="guessesInput" rows="10" cols="20"></textarea>
-
-    <label for="isAnagramCaseSensitiveInput">Büyük/Küçük Harfe Duyarlılık (True/False):</label><br>
     <textarea id="isAnagramCaseSensitiveInput" textarea name="isAnagramCaseSensitiveInput" rows="10" cols="20"></textarea>
     <br>
     <input type="submit">
