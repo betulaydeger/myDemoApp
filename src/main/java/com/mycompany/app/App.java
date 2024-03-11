@@ -71,6 +71,7 @@ public class App {
             }
 
             String guessesInput = req.queryParams("guessesInput").replaceAll("\\s", "");
+            System.out.println("guesses: " + guessesInput);
             String[] guessesString = guessesInput.split(",");
             int[] guesses = Arrays.stream(guessesString).mapToInt(Integer::parseInt).toArray();
             for (int i = 0; i < guesses.length; i++) {
