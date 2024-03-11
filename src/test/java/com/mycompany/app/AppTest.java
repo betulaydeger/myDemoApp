@@ -48,12 +48,13 @@ public class AppTest {
      * Test case for checking null arrays.
      * Expects a NullPointerException to be thrown.
      */
-    @Test(expected = NullPointerException.class)
+    @Test()
     public void testNullArrays() {
         String[] words1 = null;
         String[] words2 = null;
         int[] guess = { 2, 3, 4 };
         int result = App.how_many_guess_is_true(words1, words2, guess, false);
+        assertEquals(-1, result);
     }
 
     @Test

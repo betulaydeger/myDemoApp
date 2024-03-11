@@ -21,6 +21,9 @@ public class App {
 
     public static int how_many_guess_is_true(String[] words1, String[] words2, int[] guess,
             boolean isAnagramCaseSensitive) {
+        if (words1 == null || words2 == null || guess == null) {
+            return -1;
+        }
         int count = 0;
         for (int i = 0; i < words1.length; i++) {
             for (int j = 0; j < words2.length; j++) {
