@@ -58,17 +58,17 @@ public class App {
         get("/", (req, res) -> "Hello, World!");
 
         post("/compute", (req, res) -> {
-            String words1Input = req.queryParams("words1");
+            String words1Input = req.queryParams("words1Input");
             String[] words1 = words1Input.split("[;\\r\\n]+");
 
-            String words2Input = req.queryParams("words2");
+            String words2Input = req.queryParams("words2Input");
             String[] words2 = words2Input.split("[;\\r\\n]+");
 
-            String guessesInput = req.queryParams("guesses").replaceAll("\\s", "");
+            String guessesInput = req.queryParams("words2Input").replaceAll("\\s", "");
             String[] guessesString = guessesInput.split(",");
             int[] guesses = Arrays.stream(guessesString).mapToInt(Integer::parseInt).toArray();
 
-            String isAnagramCaseSensitiveInput = req.queryParams("isAnagramCaseSensitive (True/False)");
+            String isAnagramCaseSensitiveInput = req.queryParams("isAnagramCaseSensitiveInput");
             boolean isAnagramCaseSensitive = Boolean.parseBoolean(isAnagramCaseSensitiveInput);
 
             int result = how_many_guess_is_true(words1, words2, guesses, isAnagramCaseSensitive);
