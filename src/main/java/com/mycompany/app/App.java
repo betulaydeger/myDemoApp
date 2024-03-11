@@ -70,7 +70,7 @@ public class App {
                 System.out.println("words2: " + words2[i]);
             }
 
-            String guessesInput = req.queryParams("words2Input").replaceAll("\\s", "");
+            String guessesInput = req.queryParams("guessesInput").replaceAll("\\s", "");
             String[] guessesString = guessesInput.split(",");
             int[] guesses = Arrays.stream(guessesString).mapToInt(Integer::parseInt).toArray();
             for (int i = 0; i < guesses.length; i++) {
