@@ -60,6 +60,9 @@ public class App {
         post("/compute", (req, res) -> {
             String words1Input = req.queryParams("words1Input");
             String[] words1 = words1Input.split("[;\\r\\n]+");
+            for (int i = 0; i < words1.length; i++) {
+                System.out.println(words1[i]);
+            }
 
             String words2Input = req.queryParams("words2Input");
             String[] words2 = words2Input.split("[;\\r\\n]+");
